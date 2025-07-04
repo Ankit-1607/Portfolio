@@ -220,7 +220,7 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  /* height: 96vh; */
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
@@ -410,12 +410,23 @@ section {
 }
 
 .article-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2rem; /* row gap, column gap */
+}
+
+.article-container article {
   display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0;
+  width: auto;
+  justify-content: flex-start;
+}
+
+.article-container .icon.checkmark-icon {
+  min-width: 24px;
+  height: 24px;
 }
 
 article {
@@ -435,6 +446,13 @@ article .icon {
   position: relative;
 }
 
+#projects .article-container {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .color-container {
   border-color: var(--color-container-border_color);
   background: var(--color-container-background);
@@ -443,9 +461,13 @@ article .icon {
 }
 
 .project-img {
-  border-radius: 2rem;
   width: 90%;
-  height: 90%;
+  height: 90%; 
+  max-width: 100%;     
+  object-fit: cover;     
+  border-radius: 2rem;
+  display: block;
+  margin: 0 auto;
 }
 
 .project-title {
